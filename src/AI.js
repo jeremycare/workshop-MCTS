@@ -1,5 +1,6 @@
 const utils = require("./utils");
 const Game = require("./game");
+const MCTS = require("./MCTS");
 
 // function AI(state) {
 // 	let gameInst = new Game();
@@ -16,13 +17,13 @@ function intervalFunc() {
 }
 
 function AI(state) {
-	let gameInst = new Game();
-	var keepCalling = true;
-	setTimeout(function() {
-		keepCalling = false;
-	}, 60000);
-	console.log();
-	while (keepCalling) {}
+	const gameInst = new Game();
+	const mcts = new MCTS(gameInst);
+	mcts.makeNodes(state);
+	const startTime = new Date();
+	while (new Date() - startTime < 3000) {
+		mcts.run(state);
+	}
 }
 
 module.exports = AI;

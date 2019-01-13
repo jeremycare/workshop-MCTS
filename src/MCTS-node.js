@@ -34,4 +34,4 @@ class MCTSNode {
 	}
 }
 
-module.exports = MonteCarloNode;
+module.exports = MCTSNode;

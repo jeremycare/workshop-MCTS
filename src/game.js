@@ -1,5 +1,5 @@
-let utils = require("./utils");
-let clone = require("clone");
+const utils = require("./utils");
+const clone = require("clone");
 
 class Game {
 	start() {

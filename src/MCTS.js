@@ -37,9 +37,11 @@ class MCTS {
 		// TODO
 	}
 
-	makeNode(state) {
+	makeNodes(state) {
 		this.nodes = this.game
 			.legalMoves(state)
-			.map(x => new MCTSNode(x, state, null, game));
+			.map(x => new MCTSNode(x, state, null, this.game));
 	}
 }
+
+module.exports = MCTS;
