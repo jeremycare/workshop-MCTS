@@ -1,9 +1,9 @@
-let clone = require("clone");
-let Game = require("./game");
-let Player = require("./player");
-let AI = require("./AI");
+const clone = require("clone");
+const Game = require("./game");
+const Player = require("./player");
+const AI = require("./AI");
 
-let gameInst = new Game();
+const gameInst = new Game();
 let state = gameInst.start();
 
 console.log("Game Started !");

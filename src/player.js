@@ -1,5 +1,5 @@
-let readline = require("readline-sync");
-let Game = require("./game");
+const readline = require("readline-sync");
+const Game = require("./game");
 
 function Player(state) {
 	console.log("player start");
