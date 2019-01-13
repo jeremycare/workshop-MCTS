@@ -28,7 +28,7 @@ class MCTSNode {
 	}
 
 	/** Get the UCB1 value for this node. */
-	getUCB1() {
+	getUCT() {
 		// TODO
 		// return number
 	}

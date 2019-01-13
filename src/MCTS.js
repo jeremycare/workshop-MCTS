@@ -15,7 +15,7 @@ class MCTS {
 	}
 
 	/** Phase 1, Selection: Select until not fully expanded OR leaf */
-	select(state) {
+	select() {
 		// TODO
 		// return node
 	}
