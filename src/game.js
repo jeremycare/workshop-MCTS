@@ -1,5 +1,5 @@
-const utils = require("./utils");
-const clone = require("clone");
+const utils = require('./utils');
+const clone = require('clone');
 
 class Game {
 	start() {
@@ -11,12 +11,12 @@ class Game {
 				[0, 0, 0, 0, 0, 0, 0],
 				[0, 0, 0, 0, 0, 0, 0],
 				[0, 0, 0, 0, 0, 0, 0],
-				[0, 0, 0, 0, 0, 0, 0]
+				[0, 0, 0, 0, 0, 0, 0],
 			],
 			playerTurn: 2, //utils.getRndInteger(1, 2),
 			moves: [0, 1, 2, 3, 4, 5, 6],
 			winner: -1,
-			turn: 20
+			turn: 20,
 		};
 		return state;
 	}
@@ -29,19 +29,19 @@ class Game {
 		if (state.turn < 7 || state.board[y][x] == 0) {
 			return false;
 		}
-		let testAlign = [
+		const testAlign = [
 			[[-1, -1], [1, 1]],
 			[[0, -1], [0, 1]],
 			[[-1, 0], [1, 0]],
-			[[1, -1], [-1, 1]]
+			[[1, -1], [-1, 1]],
 		];
 
 		for (let i = 0; i < testAlign.length; i++) {
 			let score = 1;
 			for (let j = 0; j < testAlign[i].length; j++) {
 				for (let k = 1; k < 4; k++) {
-					let offsetX = testAlign[i][j][0] * k + x;
-					let offsetY = testAlign[i][j][1] * k + y;
+					const offsetX = testAlign[i][j][0] * k + x;
+					const offsetY = testAlign[i][j][1] * k + y;
 					if (
 						offsetY < 0 ||
 						offsetY >= state.board.length ||
@@ -63,13 +63,13 @@ class Game {
 
 	nextState(state, move) {
 		if (!state.moves.includes(move)) {
-			throw "Invalid move :\n" +
-				"\t- moves available : [" +
+			throw 'Invalid move :\n' +
+				'\t- moves available : [' +
 				state.moves +
-				"]\n\t- move : " +
+				']\n\t- move : ' +
 				move;
 		}
-		let newState = clone(state);
+		const newState = clone(state);
 		let i = 0;
 		for (; i < newState.board.length; i++) {
 			if (newState.board[i][move] != 0) {
@@ -91,10 +91,10 @@ class Game {
 	}
 
 	printBoard(state) {
-		console.log("\n");
-		let print = state.board.map(x => x.join("-"));
-		print.map(x => console.log("|" + x + "|"));
-		console.log("\n");
+		console.log('\n');
+		const print = state.board.map(x => x.join('-'));
+		print.map(x => console.log('|' + x + '|'));
+		console.log('\n');
 	}
 }
 
