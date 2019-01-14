@@ -1,10 +1,10 @@
 const readline = require("readline-sync");
 const Game = require("./game");
 
-function Player(state) {
+function playPlayer(state) {
 	console.log("player start");
-	let gameInst = new Game();
-	let lm = gameInst.legalMoves(state);
+	const gameInst = new Game();
+	const lm = gameInst.legalMoves(state);
 	let move = -1;
 	while (!lm.includes(move)) {
 		if (move != -1 && !lm.includes(move))
@@ -21,4 +21,4 @@ function Player(state) {
 	return move;
 }
 
-module.exports = Player;
+module.exports = playPlayer;
