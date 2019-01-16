@@ -4,7 +4,7 @@ const playPlayer = require('./player');
 const playAi = require('./AI');
 
 const gameInst = new Game();
-const state = gameInst.start();
+state = gameInst.start();
 
 console.log('Game Started !');
 
