@@ -1,9 +1,12 @@
+const assert = require('assert');
+
 class MCTSNode {
 	constructor(move, state, parent, game) {
 		this.move = move;
-		this.state = game.nextState(state, move);
+		this.state = move !== null ? game.nextState(state, move) : state;
+		assert(this.state);
 
-		this.n_plays = 0;
+		this.n_plays = 1;
 		this.n_wins = 0;
 
 		this.parent = parent;
@@ -29,8 +32,21 @@ class MCTSNode {
 
 	/** Get the UCB1 value for this node. */
 	getUCT() {
-		// TODO
-		// return number
+		return (
+			this.n_wins / this.n_plays +
+			2 * Math.sqrt(Math.log(this.parent.n_plays / this.n_plays))
+		);
+	}
+
+	getUCTLog() {
+		console.log(
+			'Utc',
+			Math.round((this.n_wins / this.n_plays) * 100) + '%',
+			this.n_plays,
+			this.parent.n_plays,
+			this.n_wins / this.n_plays,
+			Math.sqrt(Math.log(this.parent.n_plays / this.n_plays))
+		);
 	}
 }
 

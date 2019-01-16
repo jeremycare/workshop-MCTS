@@ -11,9 +11,16 @@ console.log('Game Started !');
 while (gameInst.winner(state) == -1) {
 	gameInst.printBoard(state);
 	const readMove = state.playerTurn == 2 ? playPlayer : playAi;
-	state = gameInst.nextState(state, readMove(state));
+	const move = readMove(state);
+	console.log('Move -> ', move);
+	state = gameInst.nextState(state, move);
 }
+gameInst.printBoard(state);
 
 console.log(
 	'Winner is : ' + (gameInst.winner(state) == 1 ? 'AI !' : 'PLAYER !')
 );
+try {
+} catch (error) {
+	console.error(error.stack);
+}

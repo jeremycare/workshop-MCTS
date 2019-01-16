@@ -26,9 +26,9 @@ class Game {
 	}
 
 	checkWin(state, y, x) {
-		if (state.turn < 7 || state.board[y][x] == 0) {
-			return false;
-		}
+		// if (state.turn < 7 || state.board[y][x] == 0) {
+		// 	return false
+		// }
 		const testAlign = [
 			[[-1, -1], [1, 1]],
 			[[0, -1], [0, 1]],
@@ -63,11 +63,13 @@ class Game {
 
 	nextState(state, move) {
 		if (!state.moves.includes(move)) {
-			throw 'Invalid move :\n' +
-				'\t- moves available : [' +
-				state.moves +
-				']\n\t- move : ' +
-				move;
+			throw new Error(
+				'Invalid move :\n' +
+					'\t- moves available : [' +
+					state.moves +
+					']\n\t- move : ' +
+					move
+			);
 		}
 		const newState = clone(state);
 		let i = 0;
