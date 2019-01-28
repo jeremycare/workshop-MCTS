@@ -20,7 +20,7 @@ if (RANDOM) {
 		const mcts = new MCTS(state, gameInst)
 		const startTime = new Date()
 		let i = 0
-		while (new Date() - startTime < 1000) {
+		while (new Date() - startTime < 300) {
 			mcts.run(state)
 			i++
 		}
